@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 
 joke_url = "https://official-joke-api.appspot.com/jokes/random"
 quote_url = "https://zenquotes.io/api/random"
-sad_words = ['sad', 'unhappy', 'angry', 'miserable', 'depress', 'hate']
+# sad_words = ['sad', 'unhappy', 'angry', 'miserable', 'depress', 'hate']
 lang_emoji = {
     'zh': {'🇨🇳'},
     'ru': {'🇷🇺', '🇧🇾', '🇰🇬', '🇰🇿'},
@@ -59,19 +59,19 @@ async def translate(ctx, emoji, *, words):
     await ctx.author.send(pm)
 
 
-@bot.listen('on_message')
-async def console(msg):
-    if msg.author == bot.user:
-        return
+# @bot.listen('on_message')
+# async def console(msg):
+#     if msg.author == bot.user:
+#         return
 
-    if any(word in msg.content for word in sad_words):
-        choice = random.choice((0, 1))
+#     if any(word in msg.content for word in sad_words):
+#         choice = random.choice((0, 1))
 
-        if choice == 0:
-            reply = get_quote()
-        else:
-            reply = get_joke()
-        await msg.channel.send(reply)
+#         if choice == 0:
+#             reply = get_quote()
+#         else:
+#             reply = get_joke()
+#         await msg.channel.send(reply)
 
 
 @bot.listen('on_raw_reaction_add')
